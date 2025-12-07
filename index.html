@@ -1,78 +1,114 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Donate qua VietQR</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-	<!-- Webpack will inject CSS/JS -->
-</head>
-<body>
-	<header class="site-header">
-		<div class="brand">
-			<img src="assets/avatar.jpg" alt="Avatar" class="avatar">
-			<div>
-				<h1>Donate</h1>
-				<p class="subtitle">Cảm ơn bạn đã ủng hộ để tôi có động lực làm những sản phẩm tốt hơn</p>
-				<div class="social-list">
-					<div class="social-item">
-						<img src="assets/facebook.png" alt="Facebook" class="social-icon">
-						<a href="https://www.facebook.com/profile.php?id=61567027726244" target="_blank" class="social-link" title="Fanpage : Thích Lập Trình">Fanpage : Thích Lập Trình</a>
-					</div>
-					<div class="social-item">
-						<img src="assets/tiktok.png" alt="TikTok" class="social-icon">
-						<a href="https://www.tiktok.com/@trtoantech" target="_blank" class="social-link" title="Tiktok: @trtoantech">Tiktok: @trtoantech</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Webpack will inject CSS/JS -->
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="assets/avatar.jpg" alt="Avatar" class="avatar" />
+        <div>
+          <h1>Donate</h1>
+          <p class="subtitle">
+            Cảm ơn bạn đã ủng hộ để tôi có động lực làm những sản phẩm tốt hơn
+          </p>
+          <div class="social-list">
+            <div class="social-item">
+              <img
+                src="assets/facebook.png"
+                alt="Facebook"
+                class="social-icon"
+              />
+              <a
+                href="https://www.facebook.com/profile.php?id=61567027726244"
+                target="_blank"
+                class="social-link"
+                title="Fanpage : Thích Lập Trình"
+                >Fanpage : Thích Lập Trình</a
+              >
+            </div>
+            <div class="social-item">
+              <img src="assets/tiktok.png" alt="TikTok" class="social-icon" />
+              <a
+                href="https://www.tiktok.com/@motphanmem"
+                target="_blank"
+                class="social-link"
+                title="Tiktok: @motphanmem"
+                >Tiktok: @motphanmem</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-	<main class="container">
-		<section class="card">
-			<form id="donate-form" autocomplete="on">
-				<div class="field-group">
-					<label for="amount">Số tiền</label>
-					<div class="amount-row">
-						<input inputmode="numeric" id="amount" name="amount" placeholder="Tối thiểu 8.000đ" />
-						<div class="quick">
-							<button type="button" data-amt="10000">10.000đ</button>
-							<button type="button" data-amt="50000">50.000đ</button>
-							<button type="button" data-amt="100000">100.000đ</button>
-						</div>
-					</div>
-				</div>
+    <main class="container">
+      <section class="card">
+        <form id="donate-form" autocomplete="on">
+          <div class="field-group">
+            <label for="amount">Số tiền</label>
+            <div class="amount-row">
+              <input
+                inputmode="numeric"
+                id="amount"
+                name="amount"
+                placeholder="Tối thiểu 8.000đ"
+              />
+              <div class="quick">
+                <button type="button" data-amt="10000">10.000đ</button>
+                <button type="button" data-amt="50000">50.000đ</button>
+                <button type="button" data-amt="100000">100.000đ</button>
+              </div>
+            </div>
+          </div>
 
-				<div class="field-group">
-					<label for="message">Lời nhắn</label>
-					<div class="message-row">
-						<textarea id="message" name="message" rows="4" maxlength="255" placeholder="Nhập lời nhắn"></textarea>
-						<div class="char-count"><span id="remain">255</span></div>
-					</div>
-				</div>
+          <div class="field-group">
+            <label for="message">Lời nhắn</label>
+            <div class="message-row">
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                maxlength="255"
+                placeholder="Nhập lời nhắn"
+              ></textarea>
+              <div class="char-count"><span id="remain">255</span></div>
+            </div>
+          </div>
 
-				<div class="field-group">
-					<button class="donate-btn" id="donateBtn" type="submit">Donate</button>
-				</div>
-			</form>
-		</section>
+          <div class="field-group">
+            <button class="donate-btn" id="donateBtn" type="submit">
+              Donate
+            </button>
+          </div>
+        </form>
+      </section>
 
-		<section id="qr-section" class="card qr-card hidden">
-			<p class="muted" id="qr-desc"></p>
-			<div class="qr-wrap">
-				<img id="qr-image" alt="VietQR" />
-			</div>
-			<div class="qr-actions">
-				<a id="qr-link" href="#" target="_blank" rel="noopener" class="link">Mở ảnh trong tab mới</a>
-				<button type="button" id="downloadBtn" class="link">Tải ảnh QR</button>
-			</div>
-		</section>
-	</main>
+      <section id="qr-section" class="card qr-card hidden">
+        <p class="muted" id="qr-desc"></p>
+        <div class="qr-wrap">
+          <img id="qr-image" alt="VietQR" />
+        </div>
+        <div class="qr-actions">
+          <a id="qr-link" href="#" target="_blank" rel="noopener" class="link"
+            >Mở ảnh trong tab mới</a
+          >
+          <button type="button" id="downloadBtn" class="link">
+            Tải ảnh QR
+          </button>
+        </div>
+      </section>
+    </main>
 
-	<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-
-
